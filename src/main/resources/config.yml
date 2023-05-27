@@ -1,0 +1,45 @@
+DataBase:
+  ip: localhost
+  port: 3306
+  name: TEST
+  pass: 'tamere'
+  user: root
+
+Messages:
+
+  NoPlayer: "§dSatsuki §8| §cCe joueur n'existe pas."
+
+  SQL:
+
+
+    YourAccountNotExist": "§dSatsuki §8| §cVotre compte ne semble pas exister."
+    PlayerDontExist": "§dSatsuki §8| §cCe joueur n'existe pas."
+
+
+    Money1": "Yen"
+    SetMoney1": "§dSatsuki §8| §8(§5Yen§8) §7Valeur édité sur §a%amount §7pour le joueur joueur §a%target§7."
+    DefaultValueMoney1: 0.0
+
+    Money2": "Sagesse"
+    SetMoney2": "§dSatsuki §8| §8(§5Sagesse§8) §7Valeur édité sur §a%amount §7pour le joueur joueur §a%target§7."
+    DefaultValueMoney2": 0.0
+
+
+    Money3": "Cerise"
+    SetMoney3": "§dSatsuki §8| §8(§5Cerise§8) §7Valeur édité sur §a%amount §7pour le joueur joueur §a%target§7."
+    DefaultValueMoney3": 0.0
+
+    IPDontExist": "§dSatsuki §8| §cCette IP n'existe pas."
+
+
+
+    Error: "§dSatsuki §8| §cUne erreur de type SQL s'est produite."
+    TimestampCountry: "fr"
+    TimestampLanguage: "FR"
+
+
+  ADM:
+    History:
+      Empty: "§dSatsuki §8| §cCe joueur est clean."
+    Ban:
+      Syntaxe: "§dSatsuki §8| §cAide: /adm ban <joueur> <temps> <unit> <raison>"

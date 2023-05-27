@@ -1,0 +1,64 @@
+plugins {
+    id "java"
+    id "com.github.johnrengelman.shadow" version "7.0.0" apply true
+}
+
+group = 'io.ishynss.sweety.system'
+version = '1.0-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    group = parent.group
+    version = parent.version
+
+    def targetJavaVersion = property('javaVersion') as int
+    java {
+        def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+        if (JavaVersion.current() < javaVersion) {
+            toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+            options.release = targetJavaVersion
+        }
+    }
+
+    repositories {
+        mavenCentral()
+
+        maven {
+            name = 'sonatype'
+            url = 'https://oss.sonatype.org/content/groups/public/'
+        }
+
+    }
+
+
+    shadowJar {
+        archiveBaseName.set('SweetySystem')
+        archiveClassifier.set('')
+        archiveVersion.set('')
+    }
+
+    setLibsDirName("C:\\Jar\\")
+
+    compileJava.options.encoding("UTF-8")
+}
+
+dependencies {
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
+    implementation files('C:\\Users\\SlowFeew\\Downloads\\spigot.jar')
+    implementation files('C:\\Users\\SlowFeew\\Downloads\\waterfall.jar')
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.9'
+}
+
+repositories {
+    mavenCentral()
+}
